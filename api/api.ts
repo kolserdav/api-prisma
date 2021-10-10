@@ -99,10 +99,10 @@ export async function userFindFirst<T extends Prisma.UserFindFirstArgs>(
 
 // ПЕСОЧНИЦА здесь работает так, как должно было бы работать 
 (async () => {
-  const d = await userFindFirst({
+  const user = await userFindFirst({
     where: {
       name: {
-        in: 'та'
+        endsWith: '2'
       },
     },
     select: {
@@ -110,5 +110,12 @@ export async function userFindFirst<T extends Prisma.UserFindFirstArgs>(
       id: true
     }
   });
-  console.log(d)
+  const createRes = await create({
+    data: {
+      name: 'User 1',
+      role: 'admin',
+      email: 'test@test.test'
+    }
+  });
+  console.log(user, createRes)
 })();

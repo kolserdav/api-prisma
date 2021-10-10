@@ -1,7 +1,13 @@
 // @ts-check
 import axios from 'axios';
 
-const { REACT_APP_SERVER_URL } = process.env;
+// Из файла .env
+const { REACT_APP_SERVER_URL, REACT_APP_SERVER_LOCAL_URL } = process.env;
+
+// process.env.NODE_ENV - из консоли при запуске yarn dev:start
+
+// const apiUrl = process.env.NODE_ENV === 'development' ? REACT_APP_SERVER_LOCAL_URL : REACT_APP_SERVER_URL;
+const apiUrl = REACT_APP_SERVER_URL;
 
 /**
  * Так реализовали универсальный служебный метод
@@ -26,7 +32,7 @@ const { REACT_APP_SERVER_URL } = process.env;
  */
 async function request(args) {
   const { url, method, data, headers } = args;
-  new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     axios
       .request({
         url,
@@ -64,8 +70,22 @@ async function request(args) {
  */
 export async function userFindFirst(args) {
   return await request({
-    url: `${REACT_APP_SERVER_URL}/api/v1/user/findfirst`,
+    url: `${apiUrl}/api/v1/user/findfirst`,
     method: 'POST',
-    data: args,
+    data: { args },
+  });
+}
+
+
+/**
+ * Добавить пользователя
+ * @param {any} args
+ * @returns {Promise<any>}
+ */
+ export async function create(args) {
+  return await request({
+    url: `${apiUrl}/api/v1/user/create`,
+    method: 'POST',
+    data: { args },
   });
 }

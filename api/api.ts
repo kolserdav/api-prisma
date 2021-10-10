@@ -1,5 +1,4 @@
 import { Prisma, PrismaPromise, User, PrismaClient } from './prisma';
-import * as Types from './types';
 import axios from 'axios';
 
 const { REACT_APP_SERVER_URL } = process.env;
@@ -32,7 +31,7 @@ interface Request {
  * @returns {Promise<any>}
     
  */
-export async function request(args) {
+async function request(args) {
   const { url, method, data, headers } = args;
   new Promise((resolve, reject) => {
     axios
@@ -79,12 +78,37 @@ export async function userFindFirst<T extends Prisma.UserFindFirstArgs>(
   return result;
 }
 
+/**
+ * Добавить одного пользователя
+ * @param args
+ * @returns
+ */
+ export async function create<T extends Prisma.UserCreateArgs>(
+  args: Prisma.SelectSubset<T, Prisma.UserCreateArgs>
+): Promise<
+  Prisma.CheckSelect<T, Result<User | null>, PrismaPromise<Result<Prisma.UserGetPayload<T>>>>
+> {
+  let result;
+  result = await request({
+    url: `${REACT_APP_SERVER_URL}/api/v1/user/create`,
+    method: 'POST',
+    data: args,
+  });
+  return result;
+}
+
+// ПЕСОЧНИЦА здесь работает так, как должно было бы работать 
 (async () => {
   const d = await userFindFirst({
     where: {
       name: {
-        in: 're',
+        in: 'та'
       },
     },
+    select: {
+      name: true,
+      id: true
+    }
   });
+  console.log(d)
 })();

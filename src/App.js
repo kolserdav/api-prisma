@@ -23,7 +23,8 @@ function App(args) {
         },
         select: {
           name: true,
-          id: true
+          id: true,
+          email: true
         }
       });
       console.log('userFindFirst-result', result);

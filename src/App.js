@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import './App.css';
-import * as utils from './utils';
+import * as utils from './api/api';
 
 function App(args) {
   useEffect(() => {

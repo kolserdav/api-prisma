@@ -1,3 +1,8 @@
+/**
+ * Этот файл поставляется разработчиком бекенда
+ * его менять на фронте нужно только после добавления 
+ * новых api методов
+ */
 import { Prisma, PrismaPromise, User, PrismaClient } from './prisma';
 import axios from 'axios';
 
@@ -31,7 +36,7 @@ interface Request {
  * @returns {Promise<any>}
     
  */
-async function request(args) {
+async function request(args: Request): Promise<any> {
   const { url, method, data, headers } = args;
   new Promise((resolve, reject) => {
     axios

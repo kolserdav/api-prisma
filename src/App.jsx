@@ -1,12 +1,13 @@
+// @ts-check
 import { useEffect } from 'react';
 import './App.css';
-import * as api from './api/api';
+import * as api from './utils/api';
 
 function App(args) {
   useEffect(() => {
     (async () => {
       console.log(1)
-      const createRes = await api.create({
+      const createRes = await api.userCreate({
         data: {
           name: 'User 8',
           role: 'admin',

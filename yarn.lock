@@ -4927,6 +4927,11 @@ file-entry-cache@^6.0.0:
   dependencies:
     flat-cache "^3.0.4"
 
+file-headers@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/file-headers/-/file-headers-2.0.1.tgz#af65291144dadefc15cf6db497e96d5c2905d20c"
+  integrity sha512-/vrQmrIMvJpQdYGhzTFe/Zexl65RgclZKeHS2yYAAb+MIBu38a+sTX3/GAd22e2NdJsa/NDJRPZpHeXE6euYIw==
+
 file-loader@6.1.1:
   version "6.1.1"
   resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-6.1.1.tgz#a6f29dfb3f5933a1c350b2dbaa20ac5be0539baa"

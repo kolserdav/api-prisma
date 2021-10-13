@@ -1,0 +1,12 @@
+{
+  "root": "src",
+  "repository": "https://github.com/kolserdav/api-prisma",
+  "patterns": [".js", ".jsx", ".ts", ".tsx"],
+  "exclude": ["node_modules"],
+  "name": "Sergey Kolmiller",
+  "email": "uyem.ru@gmail.com",
+  "license": "Proprietary and confidential",
+  "licenseText": "Unauthorized copying of this file, via any medium is strictly prohibited",
+  "copyright": "kolserdav (c), All rights reserved",
+  "renewAll": false
+}
